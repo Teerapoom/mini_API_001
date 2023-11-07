@@ -7,4 +7,5 @@ API is product
 
 ## CRUD Api 
 - Read all
-<img src="https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Get.png" width="200" style="margin-right: 20px;"/>
+  ![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Get.png)
+
