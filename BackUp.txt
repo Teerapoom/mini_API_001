@@ -1,0 +1,80 @@
+package main
+
+import (
+	"net/http"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+)
+
+func main() {
+	// เชื่อม Data bast
+	dsn := "root:1234@tcp(127.0.0.1:3306)/product_miniapi001?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+	// Migrate the schema
+	db.AutoMigrate(&Product{})
+	// เชื่อม Data bast
+
+	r := gin.Default()                                    //การสร้างอ็อบเจ็กต์ (object) จากคลาส (class) ->  instance
+	r.Use(cors.Default())                                 //การเข้าถึง api ของเรา
+	r.POST("/api001_POSTdatatest", func(c *gin.Context) { //func(ระบุ function handler ที่จะทำงานเมื่อมี request เข้ามาที่ path นี้.)
+		var json Product_shop001 //ตัวแปร json type struct .
+		if err := c.ShouldBindJSON(&json); err != nil {
+			// เพื่อ bind ข้อมูล JSON ที่ส่งเข้ามาใน request body
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+
+		//เช็คซ้ำ
+		var ProductExist Product
+		db.Where("Name = ?", json.Name).First(&ProductExist)
+		if ProductExist.ID > 0 {
+			c.JSON(http.StatusOK, gin.H{
+				"Status":  "error",
+				"Message": "Data Exist",
+			})
+			return
+		}
+
+		//สร้าง
+		Product := Product{Name: json.Name, Price: json.Price,
+			Detail: json.Detail, ImgUrl: json.ImgUrl}
+		db.Create(&Product)
+		if Product.ID > 0 {
+			c.JSON(http.StatusOK, gin.H{
+				"Status":      "OK",
+				"Message":     "Post Successful",
+				"DataProduct": json,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"Status":  "error",
+				"Message": "Post Failed",
+			})
+		}
+
+	})
+	r.Run("localhost:8080")
+}
+
+// json เพราะว่าจะส่งค่าเข้าไปใน api สร้างฟอม
+type Product_shop001 struct {
+	Name   string  `json:"name" binding:"required"`
+	Price  float64 `json:"price" binding:"required"`
+	Detail string  `json:"detail" binding:"required"`
+	ImgUrl string  `json:"imgUrl" binding:"required"`
+}
+
+// โครงสร้าง ตารางใน Databast
+type Product struct {
+	gorm.Model
+	Name   string
+	Price  float64
+	Detail string
+	ImgUrl string
+}
