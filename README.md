@@ -21,3 +21,7 @@ API is product
 - Update
 
 ![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Updata_api.png)
+
+- Delete
+
+  ![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Delete.png)
