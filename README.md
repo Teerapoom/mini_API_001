@@ -2,7 +2,7 @@
 API is product
 
 ## 🛠 Skills
-[![My Skills](https://skillicons.dev/icons?i=golang&perline=3)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=golang&i=mysql&perline=3)](https://skillicons.dev)
 - Go lang
 - MySql
 
