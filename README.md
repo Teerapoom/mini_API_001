@@ -13,3 +13,7 @@ API is product
 - Read by ID
   
 ![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/GetBy.png)
+
+- Create
+
+![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Post.png)
