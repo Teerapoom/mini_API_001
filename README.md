@@ -17,3 +17,7 @@ API is product
 - Create
 
 ![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Post.png)
+
+- Update
+
+![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Updata_api.png)
