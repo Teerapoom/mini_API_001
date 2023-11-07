@@ -2,9 +2,10 @@
 API is product
 
 ## 🛠 Skills
-[![My Skills](https://skillicons.dev/icons?i=golang&i=mysql&perline=3)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=go,mysql,postman)](https://skillicons.dev)
 - Go lang
 - MySql
+- Postman
 
 ## CRUD Api 
 - Read all
