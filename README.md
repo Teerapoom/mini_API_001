@@ -4,6 +4,7 @@ API is product
 ## 🛠 Skills
 [![My Skills](https://skillicons.dev/icons?i=golang&perline=3)](https://skillicons.dev)
 - Go lang
+- MySql
 
 ## CRUD Api 
 - Read all
@@ -25,3 +26,9 @@ API is product
 - Delete
 
   ![Logo](https://github.com/Teerapoom/mini_API_001/blob/main/IMG/Delete.png)
+
+  ## library
+
+ - [Gin Web](https://github.com/gin-gonic/gin)
+ - [Gin CORS](https://github.com/gin-contrib/cors)
+ - [Golang ORM library](https://gorm.io/)
